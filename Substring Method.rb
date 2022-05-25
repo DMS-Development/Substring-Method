@@ -10001,4 +10001,23 @@ dictionary = [
     "zum",
     "zus"
 ]
+puts
+print "Please input the phrase that you would like to search the dictionary for!: "
+string = gets.chomp
+puts
 
+def substring(string, dictionary)
+    lowercase_string = string.downcase
+    string_hash = Hash.new
+
+    dictionary.each do |entry|
+        matches = lowercase_string.scan(entry).count
+        string_hash[entry] = matches unless matches == 0
+    end
+
+    puts string_hash
+    puts
+    
+end
+
+substring(string, dictionary)
